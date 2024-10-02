@@ -1,0 +1,139 @@
+SDLC
+======
+SDLC stands for Software Development Life Cycle.
+
+It is a process adopt by IT Industries to develop accurate and quality of softwares.
+
+We have six phases in SDLC.
+
+1) Feasibility study 
+
+2) Analysis 
+
+3) Designing 
+
+4) Coding 
+
+5) Testing 
+
+6) Delivery and Maintainence
+
+
+1) Feasibility study 
+---------------------
+Feasibility study completely depends upon TELOS formulea.
+ex:
+	T - Technical feasibility
+	E - Economical feasbility 
+	L - Legal feasibility
+	O - Operational feasibility
+	S - Scheduled feasibility 
+
+All the above information they will keep in a document called BDD.
+
+BDD stands for Business Design Document.
+
+
+
+2) Analysis 
+-----------
+In analysis phase, system analyst or product owner will involved.
+
+They will seperate system requirement and software requirements.
+
+Later they will keep all the above information in a document called SRS.
+
+SRS stands for Software Requirements Specification.
+
+
+
+3) Designing 
+------------
+We have two types of designing.
+
+1) High Level designing 
+----------------------
+A manager is responsible to perform high level designing.
+
+In high level designing, we will design main/major modules.
+
+
+2) Low Level designing 
+------------------------
+A team lead/project lead is responsible to perform low level designing.
+
+In low level designing , we will design child/sub modules.
+
+All the above information they will keep in a document called PDD/TDD.
+
+PDD stands for Product Design Document.
+TDD stands for Technical Design Document.
+
+4) Coding
+----------
+In coding phase, developers will involved.
+
+Developers are responsible to generate the build.
+
+Developers even responsible to perform unit testing.
+
+
+5) Testing 
+----------
+In testing phase, Testing team or QA team will involved.
+
+They will use one software component called STLC to test the build.
+
+STLC stands for Software Testing Life Cycle.
+
+
+6) Delivery and Maintainence
+-----------------------------
+Before delivery , we will perform UAT testing.
+
+UAT stands for User Acceptance Testing.
+
+UAT testing is divided into two types.
+
+i) Alpha testing 
+
+ii) Beta testing 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,645 @@
+Types of blocks in Java
+========================
+A block is a set of statements which is enclosed in a curly braces i.e {}.
+
+In java, we have three types of blocks.
+
+1) Instance block 
+
+2) Static block 
+
+3) Local block 
+
+1) Instance block 
+------------------
+It is used to initialize the values to instance variables.
+
+Instance block must and should declare immediately after the class but not inside methods and constructors.
+
+Instance block will execute when we create an object.
+
+We can declare instance block as follow.
+
+syntax:
+------
+	//instance block
+	{
+		-
+		- //set of statements
+		-
+	}
+
+ex:1
+----
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	main-method 
+
+ex:2
+-----
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+		Test t=new Test();
+	}
+}
+o/p:
+	main-method 
+	instance-block
+
+ex:
+----
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("main-method");
+		Test t2=new Test();
+	}
+}
+
+ex:
+---
+class Test  
+{
+	//instance variable 
+	int i;
+	
+	//instance block
+	{
+		i=100;
+	}
+	
+	public static void main(String[] args) 
+	{
+		Test t=new Test();
+		System.out.println(t.i);//100
+	}
+}
+
+2) Static block 
+-----------------
+A static block is used to initialize the values to static variables.
+
+A static block must and should declare immediately after the class using static keyword.
+
+A static block will execute at the time of classloading.
+
+We can declare static block as follow.
+
+syntax:
+------
+	//static block
+	static
+	{
+		-
+		- //set of statements 
+		- 	
+	}
+
+ex:
+---
+class Test  
+{
+	//static block
+	static
+	{
+		System.out.println("static-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	static-block
+	main-method 
+
+ex:
+---
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	//static block
+	static
+	{
+		System.out.println("static-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		Test t=new Test();
+		System.out.println("main-method");
+	}
+}
+o/p:
+	static-block
+	instance-block
+	main-method 
+
+ex:
+----
+class Test  
+{
+	//static variable 
+	static int i;
+	
+	//static block
+	static
+	{
+		i=200;
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println(i);//200
+	}
+}
+
+3) Local block 
+--------------
+A local block is used to initialize the local variables.
+
+A local block must and should declare inside the methods and constructors.
+
+A local block will execute just like normal statement.
+
+We can declare a local block as follow.
+
+syntax:
+------
+	//local block
+	{
+		-
+		- //set of statements 
+		-
+	}
+
+ex:
+---
+class Test  
+{
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		
+		//local block
+		{
+			System.out.println("stmt2");
+		}
+		
+		System.out.println("stmt3");
+	}
+}
+
+ex:
+---
+class Test  
+{
+	
+	public static void main(String[] args) 
+	{
+		//local variable 
+		int i;
+		
+		//local block
+		{
+			i=300;
+		}
+		
+		System.out.println(i);  //300
+	}
+}
+
+Interview Question
+==================
+
+Q) Can we execute java program without main method?
+
+Yes, Till Java 1.6 version it is possible to execute java program without main method using static block.But from Java 1.7 version onwards it is not possible to execute java program without main method.
+
+ex:
+
+class Test  
+{
+	static
+	{
+		System.out.println("Hello World");
+		System.exit(0);
+	}
+}
+
+
+Q) What is Literal ?
+
+A value which is assigned to a variable is called literal.
+
+ex:
+	int   i  =  10; 
+	 |    |	    |___ value of a variable / Literal  	
+	 |    |_________ variable name / identifier 
+	 |______________ Datatype / keyword 
+
+
+Operators
+==========
+Operator is a symbol which is used to perform some operations on operands.
+
+ex:
+	c = a + b;
+
+	Here = and + are operators 
+	Here a,b and c are operands.
+
+It can be arithmetic operation, logical operation, bitwise operation and etc.
+
+We have following list of operators in java.
+
+1) Assignment operators 
+
+2) Ternary / Conditional operators 
+
+3) Logical operators 
+
+4) Bitwise operators 
+
+5) Arithmetic operators 
+
+6) Relational operators 
+
+7) Shift operators 
+
+8) Unary operators 
+
+
+1) Assignment operators 
+-------------------------
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+		
+		i=20;
+		
+		i=30;
+		
+		System.out.println(i); // 30
+	}
+}
+
+Note:
+-----
+	Re-initialization is possible in java.
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		final int i=10;
+		
+		i=20;
+		
+		i=30;
+		
+		System.out.println(i); //C.T.E 
+	}
+}
+
+Note:
+------
+	We can't change or modify final variable.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=1,2,3,4,5;
+		System.out.println(i); //C.T.E 
+	}
+}
+Note:
+-----
+	We can't assign multiple values.
+
+ex:
+---
+class Test  
+{
+	//global variable
+	static int i=10;
+	
+	public static void main(String[] args)
+	{
+		//local variable
+		int i=20;
+		
+		System.out.println(i);//20
+	}
+}
+
+Note:
+----
+	Here priority goes to local variables.
+
+
+ex:
+---
+class Test  
+{
+	//static variable
+	static int i=100;
+	
+	//instance variable
+	int i=200;
+	
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.i); // C.T.E 
+	}
+}
+Note:
+-----
+	variable i is already defined in class Test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

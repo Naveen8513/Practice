@@ -1,0 +1,500 @@
+Q) What is tightly encapsulated?
+
+A class is said to be tightly encapsulated if all the variables of that class must declare as private.
+
+Here we don't need to check  these variables contain setter and getter methods.
+
+ex:
+	class A 
+	{
+		private int i;
+	}
+	It is tightly encapsulated class.
+	
+ex:
+	class A 
+	{
+		int i;
+		private int j;
+	}
+	It is not tightly encapsulated class.
+
+
+Is-A relationship
+=================
+Is-A relationship is also known as inheritance.
+
+Using "extends" keyword we can implements Is-A relationship.
+
+The main objective of Is-A relationship is to achieve reusability.
+
+ex:
+class Vehicle
+{
+	public void engine()
+	{
+		System.out.println("Engine Method");
+	}
+}
+class Car  extends  Vehicle
+{
+	public void company()
+	{
+		System.out.println("Company Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Vehicle v=new Vehicle();
+		v.engine();
+		
+		Car c=new Car();
+		c.engine();
+		c.company();
+		
+		Vehicle v1=new Car();
+		v1.engine();
+		
+		
+		//Car c1=new Vehicle(); // invalid 
+	}
+}
+
+conclusion
+-----------
+Whatever our parent contains property it comes to child. But whatever child contains property never 
+goes back to parent.
+
+A parent reference can hold child object but child reference can't hold parent object.
+
+
+Inheritance
+============
+Inheritance is a mechanism where we will derived a class in the presence of existing class.
+
+Inheritance is a mechanism where one class will inherit the properties of another class.
+
+Using "extends" keyword we can implements inheritance.
+
+The main objective of inheritance is to achieve reusability.
+
+Diagram: java28.1
+
+In java, we have five types of inheritance.
+
+1) Single Level inheritance 
+
+2) Multi Level inheritance 
+
+3) Multiple inheritance 
+
+4) Hierarchical inheritance 
+
+5) Hybrid inheritance 
+
+
+
+1) Single Level inheritance 
+---------------------------
+If we derived a class in the presence of one base class is called single level inheritance.
+
+Diagram:	
+		A (Parent/Base/Super class)
+		|
+		|	
+		|
+		B (Child/Derived/Sub class)
+
+ex:
+----
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A  
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+		
+		B b=new B();
+		b.m1();
+		b.m2();
+	}
+}
+
+ex:
+---
+class A 
+{
+	int i=10;
+}
+class B extends A  
+{
+	int j=20;
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		
+		int c=b.i+b.j;
+		
+		System.out.println(c); //30
+	}  
+}
+
+2) Multi Level inheritance 
+--------------------------
+If we derived a class in the presence of one base class and that class is derived from another base
+class is called multi level inheritance.
+
+Diagram:
+		A
+		|
+		|
+		B
+		|
+		|
+		C
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A  
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends B  
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+		
+		B b=new B();
+		b.m1();
+		b.m2();
+		
+		C c=new C();
+		c.m1();
+		c.m2();
+		c.m3();
+	}  
+}
+
+3) Multiple inheritance
+----------------------
+In java, we can't extends more then one class simultenously because java does not support multiple 
+inheritance.
+ex:
+	class A 
+	{
+	}
+	class B 
+	{
+	}
+	class C extends A,B  --> invalid 
+	{
+	}
+
+But interface can extends more then one interface so we can achieve multiple inheritance concept 
+through interfaces.
+
+ex:
+	interface A 
+	{
+	}
+	interface B 
+	{
+	}
+	interface C extends A,B
+	{
+	}	
+
+If our class does not extends any other class then it is a direct child class of Object class.
+
+ex:					Diag:
+	class A 				Object
+	{					|
+						|
+	}					A 
+
+If our class extends some other class then it is a indirect child class of Object class.
+
+ex:					Diag:
+	class A 				Object
+	{					|
+	}					|
+	class B extends A 			A
+	{					|
+	}					|
+						B
+
+Java does not support cyclic inheritance.
+ex:
+	class A extends B 
+	{
+	}
+	class B extends A 
+	{
+	}
+
+
+
+Q) Why java does not support multiple inheritance?
+
+There is a chance of raising ambiguity problem that's why java does not support multiple inheritance.
+
+ex:
+		P1.m1()					P2.m1()
+		|--------------------------------------------|
+					|
+					c.m1();
+
+4) Hierarchical inheritance
+----------------------------
+If we derived multiple classes in the presence of one base class is called hierarchical inheritance.
+
+ex:					Diagram:
+	class A 							A
+	{						|---------------|---------------|
+	}						B				C 
+	class B extends A 
+	{
+	}
+	class C extends A 
+	{
+	}
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A  
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends A 
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+		
+		B b=new B();
+		b.m1();
+		b.m2();
+		
+		C c=new C();
+		c.m1();
+		c.m3();
+	}  
+}
+
+5) Hybrid inheritance
+----------------------
+Hybrid inheritance is a combination of more then one inheritance.
+
+Java does not support hybrid inheritance.
+
+Diagram: 
+				A
+		|---------------|---------------|
+		B				C 
+		|---------------|---------------|
+				D 
+
+
+
+Has-A relationship
+==================
+Has-A relationship is also known as composition and aggregation.
+
+There is no specific keyword to implements Has-A relationship but mostly we will use new operator.
+
+The main objective of Has-A relationship is to provide reusability.
+
+Has-A relationship increase dependency between two components.
+
+ex:
+	class  Course
+	{
+		-
+		- //course logic 
+		-
+	}
+	class Job 
+	{
+		Course c=new Course();
+		-
+		-
+	}
+
+
+ex:
+---
+class Ihub 
+{
+	public String courseName()
+	{
+		return "Full Stack Java";
+	}
+	public double courseFee()
+	{
+		return 30000d;
+	}
+	public String trainerName()
+	{
+		return "Niyaz Sir";
+	}
+}
+class Usha
+{
+	public void getCourseDetails()
+	{
+		Ihub  i=new Ihub();
+		System.out.println("Course Name :"+i.courseName());
+		System.out.println("Course Fee :"+i.courseFee());
+		System.out.println("Trainer Name :"+i.trainerName());
+	}
+}
+class Student
+{
+	public static void main(String[] args)
+	{
+		Usha u=new Usha();
+		u.getCourseDetails();
+	}
+}
+
+
+Composition
+============
+Without existing container object there is no chance of having contained object then the relationship
+between container and contained object is called composition which is strongly association.
+
+Diagram: java28.2
+
+
+Aggregation
+============
+Without existing container object there is a chance of having contained object then the relationship
+between container and contained object is called aggregation which is loosely association.
+
+Diagram: java28.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

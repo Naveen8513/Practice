@@ -1,0 +1,473 @@
+Q) Write a java program to display the strings starting with uppercase letter?
+
+input:
+	This is java Class for Student
+
+output:
+	This Class Student
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java Class for Student";
+		
+		String[] sarr=str.split(" ");
+		
+		for(String s:sarr)
+		{
+			if(s.charAt(0)>='A' && s.charAt(0)<='Z')
+			{
+				System.out.print(s+" ");
+			}
+		}
+	}
+}
+
+Q) Write a java program to display the strings starting with vowels?
+
+input:
+	Now is raining where my Umbrella
+
+output:
+	is umbrella 
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="Now is raining where my Umbrella";
+		
+		str=str.toLowerCase();
+		
+		String[] sarr=str.split(" ");
+		
+		for(String s:sarr)
+		{
+			char ch=s.charAt(0);
+			
+			if(ch=='a' || ch=='e' || ch=='i' || ch=='o'|| ch=='u')
+			{
+				System.out.print(s+" ");
+			}
+		}
+	}
+}
+
+Q) Write a java program to display number of vowels present in a string?
+
+input:
+	umbrella
+
+output:
+	u e a 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="umbrella";
+	
+		for(int i=0;i<str.length();i++)
+		{
+			char ch=str.charAt(i);
+			
+			if(ch=='a' || ch=='e' || ch=='i' || ch=='o'|| ch=='u')
+			{
+				System.out.print(str.charAt(i)+" ");
+			}
+		}
+
+	}
+}
+
+Q) Write a java program to count number of vowels present in a string?
+
+input:
+	umbrella
+
+output:
+	3
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="umbrella";
+	
+		int cnt=0;
+		
+		for(int i=0;i<str.length();i++)
+		{
+			char ch=str.charAt(i);
+			
+			if(ch=='a' || ch=='e' || ch=='i' || ch=='o'|| ch=='u')
+			{
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
+}
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	XYZ
+
+output:
+	XY
+	XZ
+	YX
+	YZ
+	ZX
+	ZY 
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="XYZ";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			for(int j=0;j<str.length();j++)
+			{
+				if(i!=j)
+				{
+					System.out.println(str.charAt(i)+""+str.charAt(j));
+				}
+				
+			}
+		}
+	}
+}
+
+Q) Write a java program to display permutation of a given string?
+
+Input:
+	ABC
+
+output:
+	ABC
+	ACB
+	BAC
+	BCA
+	CBA
+	CAB
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABC";
+		//caller method
+		permutation(str.toCharArray(),0);
+	}
+	//callie method
+	public static void permutation(char[] carr,int fi)
+	{
+		if(fi==carr.length-1)
+		{
+			System.out.println(carr);
+			return;
+		}
+		
+		for(int i=fi;i<carr.length;i++)
+		{
+			swap(carr,fi,i);
+			permutation(carr,fi+1);
+			swap(carr,fi,i);
+		}
+	}
+	//callie method
+	public static void swap(char[] carr,int fi,int i)
+	{
+		//swapping logic
+		char temp=carr[fi];
+		carr[fi]=carr[i];
+		carr[i]=temp;
+	}
+}
+
+
+Q) Write a java program to perform largest common subsequence in a given string? 
+ 
+Input: 
+ 	ABCAB 
+ 	AECB 
+Output: 
+ 	3 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="ABCAB";
+		String str2="AECB";
+		
+		//caller method
+		System.out.println(longestCommSubsequence(str1,str2));
+	}
+	//callie method
+	public static int longestCommSubsequence(String s1,String s2)
+	{
+		return solve(s1,s2,0,0);
+	}
+	//callie method
+	public static int solve(String s1,String s2,int i,int j)
+	{
+		if(i==s1.length())
+			return 0;
+		
+		if(j==s2.length())
+			return 0;
+		
+		int ans=0;
+		if(s1.charAt(i)==s2.charAt(j))
+		{
+			ans=1+solve(s1,s2,i+1,j+1);
+		}
+		else
+		{
+			ans=Math.max(solve(s1,s2,i+1,j),solve(s1,s2,i,j+1));
+		}
+		
+		return ans;
+	}
+}
+
+
+StringBuffer
+============
+If our content change frequently then it is never recommanded to go with String object because for every change a new object will be created.
+
+To overcome this limitation Sun Micro System introduced StringBuffer object.
+
+In Stringuffer all the required changes will be done in a single object only.
+
+constructor
+-----------
+
+1) StringBuffer sb=new StringBuffer();
+--------------------------------------
+It will create empty StringBuffer object with default initial capacity of 16.
+
+If we reach to maximum capacity then new capacity will be created with below formulea.
+
+syntax:
+	new_capacity = current_capacity + 1 * 2;
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+		System.out.println(sb.capacity()); //16
+		
+		sb.append("abcdefgjijklmnop");
+		System.out.println(sb.capacity()); //16
+		
+		sb.append("qr");
+		System.out.println(sb.capacity()); //16+1*2=34
+	}
+}
+
+2) StringBuffer sb=new StringBuffer(int capacity);
+---------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+		System.out.println(sb.capacity()); //19
+
+	}
+}
+
+
+3) StringBuffer sb=new StringBuffer(String str);
+----------------------------------------------
+It will create StringBuffer object equivalent to String.
+
+Here capacity will be created with below formulea.
+
+ex:
+	capacity = s.length()+16;
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("ihub");
+		System.out.println(sb.capacity()); //4+16=20
+
+	}
+}
+
+
+Q) Write a java program to display reverse of a string?
+
+input:
+	hello
+
+output:
+	olleh 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+		
+		StringBuffer sb=new StringBuffer(str);
+		
+		String rev=sb.reverse().toString();
+		
+		System.out.println(rev);
+
+	}
+}
+
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+
+output:
+	It is a plaindrome string 
+
+eX:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+		
+		StringBuffer sb=new StringBuffer(str);
+		
+		String rev=sb.reverse().toString();
+		
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

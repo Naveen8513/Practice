@@ -1,0 +1,439 @@
+Map
+====
+It is not a child interface of Collection interface.
+
+If we want to represent group of individual objects in key and value pair then we need to use Map interface.
+
+key and value both must be objects.
+
+key can't be duplicate but value can be duplicate.
+
+Each key and value pair is known as single entry.
+
+Diagram: java42.1
+
+
+HashMap
+========
+The underlying data structure is Hashtable.
+
+Duplicate keys are not allowed but values can be duplicates.
+
+Insertion order is not preserved because it will take hashcode of a key.
+
+Hetrogeneous objects are allowed for both key and value.
+
+Null insertion is possible for both key and value.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashMap hm=new HashMap();
+		hm.put("one","raja");
+		hm.put("six","alan");
+		hm.put("ten","jose");
+		hm.put("four","nancy");
+		System.out.println(hm);//{six=alan, four=nancy, one=raja, ten=jose}
+		
+		hm.put("one","gogo");
+		System.out.println(hm);//{six=alan, four=nancy, one=gogo, ten=jose}
+		
+		hm.put(1,100);
+		System.out.println(hm);//{1=100, six=alan, four=nancy, one=gogo, ten=jose}
+		
+		hm.put(null,null);
+		System.out.println(hm);//{null=null, 1=100, six=alan, four=nancy, one=gogo, ten=jose}
+	}
+}
+
+ex:
+--
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashMap hm=new HashMap();
+		hm.put("one","raja");
+		hm.put("six","alan");
+		hm.put("ten","jose");
+		hm.put("four","nancy");
+		
+		Set s=hm.keySet();
+		System.out.println(s);//[six, four, one, ten]
+		
+		Collection c=hm.values();
+		System.out.println(c);//[alan, nancy, raja, jose]
+		
+		Set s1=hm.entrySet();
+		System.out.println(s1);//[six=alan, four=nancy, one=raja, ten=jose]
+	}
+}
+
+LinkedHashMap
+===============
+It is a child class of HashMap class.
+
+LinkedHashMap is exactly same as HashMap class with following differences.
+
+
+HashMap						LinkedHashMap
+-------------					---------------
+The underlying data structure is Hashtable.	The underlying data structure is Hashtable and 
+						LinkedList.
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+Introduced in 1.2 version.			Introduced in 1.4 version.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashMap lhm=new LinkedHashMap();
+		lhm.put("one","raja");
+		lhm.put("six","alan");
+		lhm.put("ten","jose");
+		lhm.put("four","nancy");
+		System.out.println(lhm);//{one=raja, six=alan, ten=jose, four=nancy}
+		
+		lhm.put("one","gogo");
+		System.out.println(lhm);//{one=gogo, six=alan, ten=jose, four=nancy}
+		
+		lhm.put(1,100);
+		System.out.println(lhm);//{one=gogo, six=alan, ten=jose, four=nancy, 1=100}
+		
+		lhm.put(null,null);
+		System.out.println(lhm);//{one=gogo, six=alan, ten=jose, four=nancy, 1=100, null=null}
+	}
+}
+
+
+TreeMap
+=========
+The underlying datastructure is RED BLACK TREE.
+
+Duplicate keys are not allowed but values can be duplicate.
+
+Insertion order is not preserved because it will take sorting order of key.
+
+If we depends upon default natural sorting order then key must be homogeneous and Comparable.
+
+If we depends customized sorting order then key must be hetrogeneous and Non-Comparable.
+
+Key can't be null but value can be null.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeMap<Integer,String> tm=new TreeMap<Integer,String>();
+		tm.put(10,"ten");
+		tm.put(1,"one");
+		tm.put(5,"five");
+		System.out.println(tm); //{1=one, 5=five, 10=ten}
+		
+		tm.put(1,"gogo");
+		System.out.println(tm); //{1=gogo, 5=five, 10=ten}
+		
+		tm.put(4,null);
+		System.out.println(tm); //{1=gogo, 4=null, 5=five, 10=ten}
+		
+		tm.put(null,"four");
+		System.out.println(tm); //R.E NullPointerException
+	}
+}
+
+Hashtable
+=========
+The underlying data structure is Hashtable.
+
+Keys can't be duplicate but values can be duplicate.
+
+Insertion order is not preserved because it will take descending order of key.
+
+Hetrogeneous objects are allowed for both key and value.
+
+Both key and value can't be null.
+
+ex:
+--
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Hashtable ht=new Hashtable();
+		ht.put(10,"ten");
+		ht.put(1,"one");
+		ht.put(5,"five");
+		System.out.println(ht); //{10=ten, 5=five, 1=one}
+		
+		ht.put(1,"gogo");
+		System.out.println(ht); //{10=ten, 5=five, 1=gogo}
+		
+		ht.put("six",6);
+		System.out.println(ht); //{10=ten, six=6, 5=five, 1=gogo}
+		
+		//ht.put(4,null);
+		//System.out.println(ht); // R.E NullPointerException
+		
+		//ht.put(null,"four");
+		//System.out.println(ht); // R.E NullPointerException
+	}
+}
+
+Interview Questions
+===================
+
+Q) Write a java program to check given string is balanced or not?
+
+input:
+	{[()]}
+
+output:
+	It is a balanced string
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="{[()]}";
+		//caller method
+		if(isBalanced(str.toCharArray()))
+			System.out.println("It is a balanced string");
+		else
+			System.out.println("It is not a balanced string");
+	}
+	
+	//callie method 
+	public static boolean isBalanced(char[] carr)
+	{
+		Stack<Character> s=new Stack<Character>();
+		
+		//for each loop
+		for(char ch:carr)
+		{
+			if(ch=='{' || ch=='[' || ch=='(')
+			{
+				s.push(ch);
+			}
+			else if(ch==')' && !s.isEmpty() && s.peek()=='(')
+			{
+				s.pop();
+			}
+			else if(ch==']' && !s.isEmpty() && s.peek()=='[')
+			{
+				s.pop();
+			}
+			else if(ch=='}' && !s.isEmpty() && s.peek()=='{')
+			{
+				s.pop();
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
+		
+		return s.isEmpty();
+	}
+}
+
+
+Q) Write a java program to display distinct elements from given array?
+
+input:
+	1 2 2 3 3 3 4 4 4 4
+
+output:
+	1 2 3 4 
+
+ex:
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,2,2,3,3,3,4,4,4,4};
+		
+		Set<Integer> set=new LinkedHashSet<Integer>();
+		
+		for(int i:arr)
+		{
+			set.add(i);
+		}
+		
+		set.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+Q) Write a java program to compare two dates?
+
+ex:
+import java.time.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LocalDate date1=LocalDate.of(2024,1,26);
+		LocalDate date2=LocalDate.of(2024,8,15);
+		
+		if(date1.compareTo(date2)>0)
+			System.out.println("date1 is biggest");
+		else if(date1.compareTo(date2)<0)
+			System.out.println("date2 is biggest");
+		else
+			System.out.println("Both are same");
+		
+	}
+}
+
+
+Q) Write a java program to count occurance of a string?
+
+input:
+	this is is java java class
+
+output:
+	this=1 is=2 java=2 class=1 
+
+ex:
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="this is is java java class";
+		
+		String[] sarr=str.split(" ");
+		
+		Map<String,Integer> map=new LinkedHashMap<String,Integer>();
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			if(map.get(s)!=null)
+			{
+				map.put(s,map.get(s)+1);
+			}
+			else
+			{
+				map.put(s,1);
+			}
+		}
+		
+		map.forEach((key,value) -> System.out.print(key+"="+value+" "));
+	}
+}
+
+Q) Write a java program to count occurance of a character?
+
+input:
+	java
+
+output:
+	j=1 a=2 v=1
+
+ex:
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="java";
+		
+		char[] carr=str.toCharArray();
+		
+		Map<Character,Integer> map=new LinkedHashMap<Character,Integer>();
+		
+		//for each loop
+		for(char c:carr)
+		{
+			if(map.get(c)!=null)
+			{
+				map.put(c,map.get(c)+1);
+			}
+			else
+			{
+				map.put(c,1);
+			}
+		}
+		
+		map.forEach((key,value) -> System.out.print(key+"="+value+" "));
+	}
+}
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

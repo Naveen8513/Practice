@@ -1,0 +1,123 @@
+Modules in Java
+===============
+We have three modules in java.
+
+					Java
+	|--------------------------------|----------------------------------|
+	JSE/J2SE			JEE/J2EE			JME/J2ME
+(Java Standard Edition)		(Java Enterprise Edition)	(Java Micro Edition)
+
+> Standalone App		> Distributed App		> Mobile App 
+
+> Desktop App 			> Enterprise App 
+
+> Two-tier App 			> ERP App 
+
+				> N-tier App 
+
+
+> Standalone App
+----------------
+A normal java program which contains main method is called standalone application.
+
+ex:
+	class  Test
+	{
+		public  static  void  main(String[] args)
+		{
+			-
+			- // any logic here 
+			-		
+		}
+	}
+
+
+
+> Desktop App
+-----------
+It is a software application which is used to perform perticular task.
+ex:
+	Control Panel 
+	Recycle bin 
+	VLC Media Player
+	and etc
+
+
+> Two-tier App 
+--------------
+Having more then one tier is called two tier application.
+
+Diagram: java2.1
+Diagram: java2.2
+
+
+> Distributed App 
+-----------------
+Digram: java2.3
+
+In client-server architecture ,if multiple request goes to main server then main server will distribute those request to parallel server to reduce the burdun on main server such type of applications is called distributed applications.
+
+> Enterprise App 
+----------------
+An application which deals with large business complex logic with the help of middleware services is called enterprise application.
+
+Here middleware services means authentication, autherization, malware production, security and etc.
+
+ex:
+	Facebook
+	Online Shopping website 
+
+
+> ERP App 
+-----------
+ERP stands for Enterprise Resource Planning.
+
+It is used to maintain the data in enterprise.
+
+Diagram: java2.4
+
+
+> N-tier App 
+------------
+Having more then two tiers is called N-tier application.
+
+
+>Mobile App
+----------
+It is a software application or a program which specially designed for wireless network devices like phone,tab,cell, cellular and etc rather then laptop's and pc's.
+
+ex:
+	PubG
+	PhonePay
+	Gpay
+	templeRun 
+	and etc.
+
+
+
+Q) What is Java ?
+
+Java is a versatile language which is used to develop verious type of applications like distributed applications, enterprise applications, ERP applications, N-tier applications and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

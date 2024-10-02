@@ -1,0 +1,283 @@
+Q) Write a java program to segregate array elements?
+
+input:
+	0 1 1 0 0 1 0 1 0 1
+
+output:
+	0 0 0 0 0 1 1 1 1 1 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr={0,1,1,0,0,1,0,1,0,1};
+
+		int[] newArr=new int[arr.length];
+
+		//for each loop
+		int j=0;
+		for(int i:arr)
+		{
+			if(i==0)
+			{
+				newArr[j++]=i;
+			}
+		}
+
+		//inserting 1 
+		while(j<arr.length)
+		{
+			newArr[j++]=1;
+		}
+
+		//display new array 
+		for(int i:newArr)
+		{
+			System.out.print(i+" ");		
+		}				
+
+	}
+}
+
+Q) Write a java program to find out leader elements from given array?
+
+input:
+	5 2 34 7 16 3 9
+
+output:
+	9 16 34
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr={5,2,34,7,16,3,9};				
+		
+		int max=arr[arr.length-1];
+
+		System.out.print(max+" ");
+
+		for(int i=arr.length-2;i>=0;i--)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+				System.out.print(max+" ");
+			}
+		}
+
+		
+	}
+}
+
+
+Q) Write a java program to display missing element from given array?
+
+input:
+	7 3 1 5 6 2
+
+output:
+	4
+
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr={7,3,1,5,6,2};
+		
+		int sum_of_ele=arr.length+1;
+
+		int sum=(sum_of_ele * (sum_of_ele + 1))/2;
+
+		for(int i:arr)
+		{
+			sum-=i; //sum = sum - i;
+		}	
+
+		System.out.println(sum);	
+	}
+}
+
+Q) Write a java program to delete first occurance of a given element?
+
+input:
+	arr = 8 3 2 5 6 2 9 1 2 
+
+	element  = 2 
+
+output:
+	8 3 5 6 2 9 1 2 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr={8,3,2,5,6,2,9,1,2}; 
+		int element=2; 
+
+		int[] newArr=new int[arr.length-1];
+
+		int cnt=0,j=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==element && cnt==0)
+			{
+				cnt=1;
+				continue;
+			}
+			newArr[j++]=arr[i];
+		}
+		
+		//display the data
+		for(int i:newArr)
+		{	
+			System.out.print(i+" ");
+		}
+	
+	}
+}
+
+
+Q) Write a java program to insert given element in a given index of array?
+
+input:
+	arr = 7 1 9 4 7 2 
+
+	ele = 10
+
+	index = 3
+
+output:
+	7 1 9 10 4 7 2 
+
+ex:
+---
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr={7,1,9,4,7,2}; 
+		int ele=10;
+		int index=3;
+
+		arr=Arrays.copyOf(arr,arr.length+1);
+
+		for(int i=arr.length-1;i>=index;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+
+		arr[index]=ele;		
+	
+		//display elements
+		for(int i:arr)
+		{	
+			System.out.print(i+" ");
+		}
+	}
+}
+
+Q) Write a java program to merge two arrays and display them in sorting order?
+
+input:
+	5 1 4 3 2 
+	9 6 8 7 10
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr1={5,1,4,3,2}; 
+		int[] arr2={9,6,8,7,10};
+
+		int size1=arr1.length;
+		int size2=arr2.length;
+
+		arr1=Arrays.copyOf(arr1,size1+size2);
+
+		int j=0;
+		for(int i=size1;i<arr1.length;i++)
+		{
+			arr1[i]=arr2[j++];
+		}
+
+		Arrays.sort(arr1);
+
+		//display elements
+		for(int i:arr1)
+		{
+			System.out.print(i+" ");		
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

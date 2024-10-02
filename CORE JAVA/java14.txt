@@ -1,0 +1,527 @@
+Bitwise NOT operator (~)
+-------------------------
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= ~10;
+		
+		System.out.println(i); // -11
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= ~56;
+		
+		System.out.println(i); //  -57
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= ~(-10);
+		
+		System.out.println(i); //  9
+	}
+}
+
+5) Arithmetic Operators
+=======================
+% - modules 
+/ - division 
+* - multiplication 
++ - addition 
+- - subtraction 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 6+7%2+5*2+8/2+9/10+6*2+10%20-40;
+		System.out.println(i); // 3
+	}
+}
+/*
+	6 + 7%2  +  5*2  +  8/2  +  9/10  +  6*2  +  10%20  -  40
+	
+	6 + 1  +  10   +  4  +  0  +  12  +  10  - 40
+	
+	43 - 40 
+	
+	3
+*/
+
+
+6) Relational operators 
+========================
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10 > 20); //false 
+		
+		System.out.println(10 >= 20 ); //false
+		
+		System.out.println(10 < 20); //true 
+		
+		System.out.println(10 <= 10); //true 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10 == 10); //true 
+		
+		System.out.println(10 == 20); //false
+		
+		System.out.println(10 != 10); //false
+		
+		System.out.println(10 != 20); //true 
+	
+	}
+}
+
+
+7) Shift operators
+===================
+
+Right shift operator (>>)
+--------------------------
+10 >> 1 =  10/2 
+
+10 >> 2 =  10/4	(10/2*2)		
+
+10 >> 3 =  10/8 (10/2*2*2)
+
+10 >> 4 =  10/16 (10/2*2*2*2)
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 10 >> 3;  //10/8
+		
+		System.out.println(i); // 1
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 100 >> 5; // 100 / 32
+		
+		System.out.println(i); // 3
+	
+	}
+}
+
+Left shift operator (<<)
+--------------------------
+10 << 1 =  10*2 
+
+10 << 2 =  10*4	(10/2*2)		
+
+10 << 3 =  10*8 (10/2*2*2)
+
+10 << 4 =  10*16 (10/2*2*2*2)
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 5 << 3;  // 5 * 8 
+		
+		System.out.println(i); //  40
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 10 << 6;
+	
+		System.out.println(i); //  10 * 64  = 640
+	
+	}
+}
+
+
+8)Unary operators 
+=================
+
+Increment/Decrement operators(++/--)
+-------------------------------------
+We have two types of increment operators.
+
+1) Post Increment 
+	ex:
+		i++;
+
+2) Pre Increment 
+	ex:
+		++i;
+
+
+We have two types of decrement operators.
+
+1) Post Decrement 
+	ex:
+		i--;
+
+2) Pre Decrement
+	ex:
+		--i;
+
+
+Post increment / decrement 
+===========================
+
+Rule1: First Take 
+
+Rule2: Then Change 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		i++;
+		
+		System.out.println(i); //11
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+	
+		System.out.println(i++); //10
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+	
+		int j=i++;
+		
+		System.out.println(i+" "+j); // 11   10
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+	
+		int j=i-- + i--; //10 + 9 
+		
+		System.out.println(i+" "+j); // 8  19 
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+	
+		int j = i++ + i-- - i++;  //10 - 11 + 10 
+		
+		System.out.println(i+" "+j); //11   11
+	
+	}
+}
+
+Pre Increment/Decrement 
+-------------------------
+
+Rule1: First Change 
+
+Rule2 : Than Take 
+
+ex:1
+-----
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		++i;
+		
+		System.out.println(i);//11
+	
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(++i);//11
+	
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j=++i;
+		
+		System.out.println(i+" "+j);//11   11
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j=--i + --i; // 9 + 8 
+		
+		System.out.println(i+" "+j);// 8   17
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(i++ + ++i);// 10  + 12 = 22
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=100;
+		
+		100++;
+		
+		System.out.println(i);// C.T.E 
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(++(i++)); //C.T.E 
+	
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		byte b=127;
+		
+		b++;
+		
+		System.out.println(b);//-128
+	
+	}
+}
+
+Question
+=========
+Q) Write a java program to find square of a given number?
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt(); //5
+	
+		int result=(int)Math.pow(n,2);
+		
+		System.out.println(result);
+	}
+}
+
+
+Assignment
+==========
+Q) Write a java program to convert USD to INR ?
+
+Input:
+ 	1
+
+Output:
+	83.52
+
+
+Q) Write a java program to convert INR to USD?
+
+Input:
+ 	83.52
+
+Output:
+	1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

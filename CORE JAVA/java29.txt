@@ -1,0 +1,510 @@
+Method overloading
+==================
+Having same method name with different parameters/signatures in a single class is called method
+overloading.
+
+Methods which are present in a class are called overloaded methods.
+
+Method overloading will reduce complexity of the programming.
+
+ex:
+--
+class MeeSeva
+{
+	//overloaded methods 
+	public void search(int voterId)
+	{
+		System.out.println("Details Found via voterId");
+	}
+	public void search(String houseNo)
+	{
+		System.out.println("Details Found via houseNo");
+	}
+	public void search(long aadharNo)
+	{
+		System.out.println("Details Found via aadharNo");
+	}
+}
+class Customer
+{
+	public static void main(String[] args)
+	{
+		MeeSeva ms=new MeeSeva();
+		ms.search(101);
+		ms.search("1-6-4/1/A");
+		ms.search(1024L);
+	}
+}
+
+Q) Can we overload main method in java?
+
+Yes, we can overload main method in java but JVM always execute main method with String[]
+argument.
+
+ex:
+
+class Test 
+{
+	public static void main(int[] iargs)
+	{
+		System.out.println("int[] iargs");
+	}
+	public static void main(String[] args)
+	{
+		System.out.println("string[] args");
+	}
+}
+
+Method overriding
+==================
+Having same method name with same parameters in a two different class is called method overriding.
+
+Methods which are present in parent class are called overridden methods.
+
+Methods which are present in child class are called overriding methods. 
+
+ex:
+---
+class Parent
+{
+	public void property()
+	{
+		System.out.println("cash+gold+land");
+	}
+	//overridden method 
+	public void marry()
+	{
+		System.out.println("Anushka");
+	}
+}
+class Child extends Parent
+{
+	//overriding method 
+	public void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // cash+gold+land
+		p.marry(); // Anushka
+		
+		Child c=new Child();
+		c.property(); // cash+gold+land
+		c.marry(); // Rashmika
+		
+		Parent p1=new Child();
+		p1.property(); // cash+gold+land
+		p1.marry(); // Rashmika
+		
+	}
+}
+
+If we declare any method as final then overriding of that method is not possible.
+
+ex:
+
+
+class Parent
+{
+	public void property()
+	{
+		System.out.println("cash+gold+land");
+	}
+	//overridden method 
+	public final void marry()
+	{
+		System.out.println("Anushka");
+	}
+}
+class Child extends Parent
+{
+	//overriding method 
+	public void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // cash+gold+land
+		p.marry(); // Anushka
+		
+		Child c=new Child();
+		c.property(); // cash+gold+land
+		c.marry(); // Rashmika
+		
+		Parent p1=new Child();
+		p1.property(); // cash+gold+land
+		p1.marry(); // Rashmika
+		
+	}
+}
+o/p:
+	C.T.E : Overridden method is final 
+
+
+If we declare any method as private then overriding is not possible.
+
+ex:
+class Parent
+{
+	private void property()
+	{
+		System.out.println("House-Not For Sale");
+	}
+}
+class Child extends Parent
+{
+	public void property()
+	{
+		System.out.println("House- For Sale");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property();
+		
+		Child c=new Child();
+		c.property();
+		
+	}
+}
+o/p:
+	C.T.E : property() has private access in Parent
+
+
+Q) What is the difference method method overloading and method overriding?
+
+Method overloading				Method overriding
+-------------------				-------------------
+Having same method name with different 		Having same method name with same parameters in
+parameters in a single class is called 		two different classes is called method overriding.
+method overloading.
+
+Method resolution will taken care by a 		Method resolution will taken care by JVM based 
+compiler based on reference type.		on runtime object.
+
+Private and final methods can be overloaded.	Private and final methods can't be overridden.
+
+It is also known as compile time polymorphism.	It is also known as runtime polymorphism.
+
+
+Method Hiding
+=============
+Method hiding is exactly same as method overriding with following differences.
+
+Method overriding				Method hiding
+-------------------------			----------------
+Methods present in method overriding 		Methods present in method hiding must be 
+must be non-static.				static.
+
+Method resolution will taken care by a		Method resolution will taken care by a 
+JVM based on runtime object.			compiler based on reference type.
+
+It is also known as runtime polymorhism,	It is also known as compile time polymorphism,
+dynamic polymorphism or late binding.		static polymorphism or early binding.
+
+
+ex:
+--
+class Parent
+{
+	public static void property()
+	{
+		System.out.println("cash+gold+land");
+	}
+	//overridden method 
+	public static void marry()
+	{
+		System.out.println("Anushka");
+	}
+}
+class Child extends Parent
+{
+	//overriding method 
+	public static void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // cash+gold+land
+		p.marry(); // Anushka
+		
+		Child c=new Child();
+		c.property(); // cash+gold+land
+		c.marry(); // Rashmika
+		
+		Parent p1=new Child();
+		p1.property(); // cash+gold+land
+		p1.marry(); // Anushka
+		
+	}
+}
+
+
+Q) Can we override main method in java?
+
+No, we can't override main method in java because it is static.
+
+
+Polymorphism
+==============
+Polymorphism has taken from Greek.
+
+Here poly means many and morphism means forms.
+
+The ability to represent in different forms is called polymorphism.
+
+The main objective of polymorphism is to provide flexibility.
+
+Diagram: java29.1
+
+In java, we have two types of polymorphism.
+
+1) Compile time polymorphism
+
+2) Runtime polymorphism 
+
+1) Compile time polymorphism
+------------------------------
+A polymorphism which exhibits at compile time is called compile time polymorphism.
+
+ex:
+	Method overloading
+	Method hiding 
+
+
+2) Runtime polymorphism
+-----------------------
+A polymorphism which exhibits at run time is called run time polymorphism.
+
+ex:
+	Method overriding
+
+
+
+Q) What is the difference between Abstraction and Encapsulation ?
+
+
+Abstraction					Encapsulation
+----------					-------------
+Hiding internal implementation and highlighting	The process of encapsulating variables and it's
+the set of services is called abstraction.	associate methods in a single entity is called 
+						encapsulation.
+
+Using abstract classes and interfaces we 	Using access modifiers we can implements 
+can implements abstraction.			Encapsulation.
+
+It is used to hide the data.			It is used to protect the data.
+
+It solves the issue at design level.		It solves the issue at implementation level.
+
+
+
+Q) What is the difference between POJO class and Java Bean class?
+
+POJO 						Java Bean 
+----------					------------
+It can’t be serialized. 			It can be serialized. 
+
+Fields can have any visibility. 		Fields can have only private visibility. 
+
+There may or may not have 0-arg constructor.	It must have 0-argument constructor. 	
+
+It does not extend any other class. 		It can extends. 
+
+It does not implement any other interface. 	It can implements. 
+
+It does not use any outside annotation. 	It uses outside annotation.
+
+ex:
+
+POJO 
+----
+class Student
+{
+	private int studId;
+	
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public int getStudId()
+	{
+		return studId;
+	}
+}
+
+
+Java Bean
+---------
+class Student implements java.io.Serializable
+{
+	private int studId;
+	
+	Student()
+	{
+		
+	}
+	
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public int getStudId()
+	{
+		return studId;
+	}
+}
+
+
+Diagram: java29.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

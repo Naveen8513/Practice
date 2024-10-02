@@ -1,0 +1,469 @@
+Q) Write a java program to perform sum of digits of a given number?
+
+input:
+	123
+
+output:
+	6
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int rem,sum=0;
+		while(n>0)
+		{
+			rem=n%10;
+			sum=sum+rem;
+			n=n/10;
+		}
+		System.out.println(sum);
+	}
+}
+
+
+Q) Write a java program to check given number is armstrong or not?
+
+input:
+	153
+
+output:
+	It is an amrstrong number (1*1*1+5*5*5+3*3*3)(1+125+27)(153)
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n=sc.nextInt(); //153
+		
+		int temp=n;
+		
+		int rem,sum=0;
+		while(n>0)
+		{
+			rem=n%10;
+			sum=sum+rem*rem*rem;
+			n=n/10;
+		}
+		if(temp==sum)
+			System.out.println("It is an armstrong number");
+		else
+			System.out.println("It is not an armstrong number");
+	}
+}
+
+
+
+
+Q) Write a java program to display reverse of a given number?
+
+Input:
+	123
+
+Output:
+	321
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to find out given number is palindrome or not?
+
+input:
+	121
+
+output:
+	It is a palindrome number 
+
+
+ex:
+---
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int temp=n;
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		if(temp==rev)
+			System.out.println("It is a palindrome number");
+		else
+			System.out.println("It is not a palidrome number");
+	}
+}
+
+
+Orchasp company Interview Question
+==================================
+Write a java program to calculate costs based on user input. The program
+should prompt users to enter the total weight of items(in kilograms) and the shipping destination (domestic or international). For demostic orders, the program should charge Rs.500 for weights upto 5 kg and Rs.100 per additional kg. For international orders, it should charge Rs.1000 for weights upto 5 kg , Rs.200 per additional kg , and a Rs.500 surcharge for weights exceeding 10 kg. print calculated shipping cost.
+
+Input:
+	Enter total weight of items : 11
+	Enter the shipping destination : domestic 
+
+Output:
+	1100  (weight <=5 --> Rs. 500 + 600(6kgs) ) --> Domestic
+
+	2700  (weight<=5 --> Rs. 1000 + 1200(6*200) +  500) --> International
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Total Weight of Item :");
+		int weight=sc.nextInt(); //11
+		
+		System.out.println("Enter the destination :");
+		String destination=sc.next();//domestic
+		
+		if(destination.equals("domestic"))
+		{
+			if(weight<=5)
+				System.out.println(500);
+			else if(weight>5)
+				System.out.println(500 + (weight-5) * 100);
+		}
+		else
+		{                                      
+			if(weight<=5)
+				System.out.println(1000);
+			else if(weight>5 && weight<=10)
+				System.out.println(1000 + (weight-5)*200);
+			else if(weight>10)
+				System.out.println(1000 + (weight-5)*200 + 500);
+		}
+		
+	}
+}
+
+
+3) for loop
+===========
+It will execute the source code untill our condition is true.
+
+syntax:
+------
+	for(initialization;condition;incrementation/decrementation)
+	{
+		-
+		- //code to be execute 
+		-
+	}
+
+Note:
+-----
+If number of iterations are known by the user then we need to use for loop.
+
+If number of iterations are not known by the user then we need to use while loop.
+
+If number of iterations are not known by the user but code must execute atleast for one time then we need to use do while loop.
+
+
+ex:
+----
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.print(i+" ");//1 2 3 4 5 6 7 8 9 10
+		}
+	}
+}
+
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=10;i>=1;i--)
+		{
+			System.out.print(i+" ");//10 9 8 7 6 5 4 3 2 1 
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1;i<=10;i++)
+		{
+			sum+=i;
+		}
+		System.out.println(sum); //55
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				System.out.print(i+" "); //2 4 6 8 10
+			}
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int cnt=0;
+		
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				cnt++;		
+			}
+		}
+		System.out.println(cnt); //5
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(;;)
+		{
+			System.out.print("Hello ");
+		}
+	}
+}
+
+Q) Write a java program to check given number is prime or not?
+
+Prime numbers : 
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 
+43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97. 
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		boolean flag=true;
+		
+		for(int i=2;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is a prime number");
+		else
+			System.out.println("It is not a prime number");
+	}
+}
+
+Assignment
+==========
+Q) Write a java program to find out factorial of a given number using for loop?
+
+Input:
+	n = 5
+
+Output:
+	120 
+
+
+Q) Write a java program to display reverse of a given number?
+
+Input:
+	123
+
+Output:
+	ThreeTwoOne
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

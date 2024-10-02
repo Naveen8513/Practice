@@ -1,0 +1,624 @@
+Types of Cursors
+================
+Cursor is used to read the objects one by one from Collections.
+
+We have three types of cursors.
+
+1) Enumeration 
+
+2) Iterator 
+
+3) ListIterator
+
+1) Enumeration 
+---------------
+Enumeration is used to read objects one by one from legacy Collection objects.
+
+We can create Enumeration object by using elements() method.
+
+ex:
+	Enumeration e=v.elements();
+
+Enumeration interface contains following two methods.
+
+ex:
+	public boolean hasMoreElements()
+	public Object nextElement() 
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Vector v=new Vector();
+		
+		for(int i=1;i<=10;i++)
+		{
+			v.add(i);
+		}
+		System.out.println(v);//[1,2,3,4,5,6,7,8,9,10]
+		
+		Enumeration e=v.elements();
+		
+		while(e.hasMoreElements())
+		{
+			Integer i =(Integer)e.nextElement();
+			System.out.println(i);
+		}
+	}
+}
+
+Limitation with Enumeration
+---------------------------
+Enumeration interface is used read objects only from legacy Collection objects.Hence it is not a universal cursor.
+
+Using Enumeration we can perform read operation but not remove operation.
+
+To overcome this limitation Sun Micro System introduced Iterator.
+
+
+2) Iterator
+--------------
+It is used to read objects one by one from any Collection object.Hence it is a universal cursor.
+
+Using Iterator interface we can perform read and remove operation.
+
+We can create Iterator object by using iterator() method.
+
+ex:
+	Iterator itr=al.iterator();
+
+Iterator interface contains following three methods.
+
+ex:
+	public boolean hasNext()
+	public Object next()
+	public void remove() 
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		
+		for(int i=1;i<=10;i++)
+		{
+			al.add(i);
+		}
+		System.out.println(al);//[1,2,3,4,5,6,7,8,9,10]
+		
+		Iterator itr=al.iterator();
+		
+		while(itr.hasNext())
+		{
+			Integer i=(Integer)itr.next();
+			if(i%2==0)
+				System.out.println(i+" ");
+			else
+				itr.remove();
+		}
+		
+		System.out.println(al);//[2,4,6,8,10]
+	}
+}
+
+Limitation with Iterator
+----------------------
+Using Enumeration and Iterator we can read objects only in forward direction but not in backward direction.Hence they are not bi-directional cursors.
+
+Using Iterator interface we can perform read and remove operation but not adding and replacement of new object.
+
+To overcome this limitation we need to use ListIterator.
+
+3) ListIterator
+----------------
+ListIterator is a child interface of Iterator interface.
+
+ListIterator is used to read objects one by one from List Collection object only.
+
+ListIterator interface is used to perform read, remove , adding and replacement of new object.
+
+We can create ListIterator object by using listIterator() method.
+
+ex:
+	ListIterator litr=al.listIterator();
+
+ListIterator interface contains following 9 methods.
+
+ex:
+	public abstract boolean hasNext()
+	public abstract Object next()
+	public abstract boolean hasPrevious()
+	public abstract Object previous()
+	public abstract int nextIndex()
+	public abstract int previousIndex()	
+	public abstract void remove()
+	public abstract void add(E)
+	public abstract void set(E)
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+		al.add("chiru");
+		System.out.println(al);//[venki,bala,nag,chiru]
+		
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			System.out.println(s);
+		}
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+		al.add("chiru");
+		System.out.println(al);//[venki,bala,nag,chiru]
+		
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			if(s.equals("bala"))
+			{
+				litr.remove();
+			}
+		}
+		
+		System.out.println(al);//[venki,nag,chiru]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+		al.add("chiru");
+		System.out.println(al);//[venki,bala,nag,chiru]
+		
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			if(s.equals("nag"))
+			{
+				litr.add("chaitanya");
+			}
+		}
+		
+		System.out.println(al);//[venki, bala, nag, chaitanya, chiru]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+		al.add("chiru");
+		System.out.println(al);//[venki,bala,nag,chiru]
+		
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			if(s.equals("chiru"))
+			{
+				litr.set("ramcharan");
+			}
+		}
+		
+		System.out.println(al);//[venki,bala,nag,ramcharn]
+	}
+}
+
+
+Q) Types of Data Structures in Java?
+
+Diagram: java43.1
+
+
+Multithreading
+===============
+
+Q) What is the difference between Thread and Process?
+
+Thread
+------
+	A Thread is a light weight sub process.
+
+	We can run multiple threads concurently.
+
+	Once thread can communicate with another thread.
+
+	ex:
+		class is one thread 
+		constructor is one thread
+		block is one thread
+
+Process
+-------
+	A process is a collection of threads.
+	
+	We can run multiple process concurently.
+
+	Once process can't communicate with another process.
+
+	ex:
+		typing the notes in editor is one process		
+		taking a class using zoom meeting is one process
+		downloading a file from internet is one process
+
+
+
+Multitasking
+=============
+Executing several task simultenously such concept is called multitasking.
+
+We have two types of multitasking.
+
+1) Thread based multitasking 
+
+2) Process based multitasking
+
+
+1) Thread based multitasking
+---------------------------
+Executing several task simultenously where each task is a same part of a program.
+
+It is best suitable for programmatic level.
+
+
+2) Process based multitasking
+----------------------------
+Executing several task simultenously where each task is a independent process.
+
+It is best suitable for OS level.
+
+
+Multithreading
+==============
+Executing several threads simultenously such concept is called multithreading.
+
+The main objective of multithreading is to improve the performance of the application/system.
+
+The important application area of multithreading are.
+
+1) To implements multi media graphics.
+
+2) To develop video games.
+
+3) To develop animations.
+
+In multithreading only 10% of work should be done by a programmer and 90% of work will be done by JAVA API.
+
+
+Ways to create a thread in java
+==============================
+There are two ways to create a thread in java.
+
+1) By extending Thread class
+
+2) By implementing Runnable interface
+
+
+1) By extending Thread class
+----------------------------
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();	
+		
+		//start a thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case1: Thread Schedular
+-----------------------
+If multiple threads are waiting for execution which thread will be executed will decided by Thread schedular. 
+
+What algorithm, behaviour or mechanism used by thread schedular is depends upon JVM vendor.
+
+Hence we can't expect any execution order or exact output in multithreading.
+
+
+case2: Difference between t.start() and to.run() method
+----------------------------------------------------------
+If we invoke t.start() method then a new thread will be created which is responsible to execute run() method automatically.
+
+ex:
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();	
+		
+		//start a thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+If we invoke t.run() method then no new thread will be created but run() method will execute just like a normal method.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();	
+		
+		//no new thread
+		t.run();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+
+case3: If we won't override run() method
+-------------------------------------------
+If we won't override run() method then start() method will execute Thread class run() method automatically. 
+
+But Thread class run() method is empty implementation.Hence we won't get any output from child thread.
+
+ex:
+class MyThread extends Thread 
+{
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();	
+		
+		//new thread 
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case4: If we overload run() method
+---------------------------------------
+If we overload run() method then Thread class start() method always execute run() method with zero argument only.
+
+ex:
+class MyThread extends Thread 
+{
+	public void run(int i)
+	{
+		System.out.println("int-arg method");
+	}
+	public void run()
+	{
+		System.out.println("0-arg method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();	
+		
+		//new thread 
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case5: Life cycle of a thread
+------------------------------
+
+Diagram: java43.2
+
+Once if we create a thread , our thread will be in new or born state.
+
+Once if we call t.start() method our thread will be in ready or runnable state.
+
+If thread schedular allocates to CPU our thread goes to running state.
+
+Once run() method execution is completed our thread enters to dead state.
+
+
+2) By implementing Runnable interface
+--------------------------------------
+class MyRunnable implements Runnable
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MyRunnable r=new MyRunnable();
+		
+		Thread t=new Thread(r); // r is a targatable interface
+		
+		//new thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

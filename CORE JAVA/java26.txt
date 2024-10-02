@@ -1,0 +1,201 @@
+Q) Write a java program to display array elements in spiral form?
+
+input:
+	1 2 3
+	4 5 6
+	7 8 9 
+
+output:
+	1 2 3 6 9 8 7 4 5 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix={
+						{1,2,3},
+						{4,5,6},
+						{7,8,9}
+					};
+		int rows=matrix.length;
+		int cols=matrix[0].length;
+		
+		int left=0;
+		int right=rows-1;
+		int top=0;
+		int bottom=cols-1;
+		
+		while(true)
+		{
+			if(left>right)
+			{
+				break;
+			}
+			for(int i=left;i<=right;i++)
+			{
+				System.out.print(matrix[top][i]+" ");
+			}                                
+			top++;	
+			
+			if(top>bottom)
+			{
+				break;
+			}
+			for(int i=top;i<=bottom;i++)
+			{
+				System.out.print(matrix[i][right]+" ");
+			}                             
+			right--;     
+			
+			
+			if(left>right)
+			{
+				break;
+			}
+			for(int i=right;i>=left;i--)
+			{
+				System.out.print(matrix[bottom][i]+" ");
+			}                                                    
+			bottom--;	
+			
+			if(top>bottom)
+			{
+				break;
+			}
+			for(int i=bottom;i>=top;i--)
+			{
+				System.out.print(matrix[i][left]+" ");
+			}                                  
+			left++;  
+		}										 
+		
+		
+	}
+}
+
+OOPS
+=====
+OOPS stands for Object Oriented Programming System / Structure.
+
+OOPS allows us to deal with real world entities using programming language.
+
+A language is said to be object oriented if it supports following features.
+
+ex:
+	class
+	object 
+	Abstraction
+	Encapsulation
+	Inheritance
+	and 
+	Polymorphism
+
+
+class
+======
+A class is a blue print of an object.
+
+A class is a collection of objects.
+
+We can declare a class as follow.
+
+syntax:
+	optional
+	   |
+	 Modifier  class  class_name <extends> Parent_classname
+				     <implements> interface_name 
+	{
+		-
+		- 
+		- 
+	}
+
+A class will accept following modifiers.
+
+ex:
+	default
+	public
+	final
+	abstract 
+
+
+Realtime example
+-----------------
+To constructor a building we required a design. That design is known as blue print/class.
+
+
+
+Q) What is difference between default class and public class?
+
+default class					public class
+--------------------				-----------------
+If we declare a class without modifier 		If we declare a class with public modifier
+is called default class.			is called public class.
+
+ex:						ex:
+	class Test					public class Test
+	{						{
+		
+	}						}
+
+If we declare any class as default then 	If we declare any class as public then
+we can access that class within the package.	we can access that class within the package
+						and outside the package.
+
+
+Q) What is the difference between final class and abstract class?
+
+final class					abstract class
+-------------					-----------------
+If we declare a class with final modifier	If we declare a class with abstract modifier
+is called final class. 				is called abstract class.
+
+ex:						ex:
+	final class Test				abstract class Test 
+	{						{
+
+	}						}
+
+Child creation is not possible.			Child creation is possible.
+
+We can create object.				We can't create object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

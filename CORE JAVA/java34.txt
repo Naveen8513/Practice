@@ -1,0 +1,477 @@
+Types of objects in java
+========================
+We have two types of objects in java.
+
+1) Immutable object 
+
+2) Mutable object 
+
+
+1) Immutable object 
+--------------------
+After object creation if we perform any changes then for our change a new object will be created
+such type of object is called immutable object.
+ex:
+	String and wrapper classes
+
+2) Mutable object 
+-----------------
+After object creation if we perform any changes then all the required changes will be reflected to same object only such type of object is called mutable object.
+ex:
+	StringBuffer and StringBuilder 
+
+
+
+String
+======
+It is a collection of characters which is enclosed in a double quotation.
+
+case1:
+------
+Once if we create a String object we can't perform any changes.If we perform any changes then for change a new object will be created such behaviour is called immutability of an object.
+
+Diagram: java34.1
+
+
+case2:
+------
+What is the difference between == and .equals() method?
+
+==
+----
+It is a comparision operator which always return boolean value.
+
+It is used for reference comparision or address comparision.
+
+We can compare primitives and objects.
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("ihub");
+		String s2=new String("ihub");
+		System.out.println(s1==s2);//false
+	}
+}
+
+.equals() 
+-----------
+It is a method present in String class which always returns boolean value.
+
+It is used for content comparision and it is case sensitive.
+
+We can't compare primitives.
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("ihub");
+		String s2=new String("ihub");
+		System.out.println(s1.equals(s2));//true
+	}
+}
+
+
+case3:
+------
+Once if we create a String object, two objects will be created one is on heap and another is on 
+SCP (String Constant Pool) Area.But 's' always points to heap area only.
+
+Diagram: java34.2
+
+
+Object creation in SCP area is always optional.
+
+First JVM will check is there object is created with same content or not. If it is created then it simply refers to that object. If it is not created then JVM will create a new object. Hence there is no chance of having duplicate objects in SCP area.
+
+Even though SCP area objects do not have any object reference , garbage collection can't access them.
+
+Diagram: java34.3
+
+
+Interning of String object
+-------------------------
+With the help of heap object reference if we need corresponding SCP object reference then we need 
+to use intern method.
+
+Diagram: java34.4
+
+
+String important methods
+=========================
+
+Q) Write a java program to display length of the string?
+
+input:
+	hello 
+
+output:
+	5 
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+		
+		System.out.println(str.length());//5
+	}
+}
+
+
+Q) Write a java program to display the string character by character ?
+
+input:
+	ihub
+
+output:
+	i
+	h
+	u
+	b 
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="ihub";
+		
+		//reading characters
+		for(int i=0;i<str.length();i++)
+		{
+			char ch=str.charAt(i);
+			System.out.println(ch);
+		}
+		
+	}
+}
+
+
+Q) Write a java program to convert lowercase string to uppercase ?
+
+input:
+	ihubtalent
+
+output:
+	IHUBTALENT
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+		
+		str=str.toUpperCase();
+		
+		System.out.println(str); 
+		
+	}
+}
+
+
+Q) Write a java program to convert uppercase string to lowercase ?
+
+input:	
+	IHUBTALENT
+
+output:
+	ihubtalent	
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="IHUBTALENT";
+		
+		str=str.toLowerCase();
+		
+		System.out.println(str); 
+		
+	}
+}
+
+Q) Write a java program to concatinate two strings?
+
+input:
+	ihub
+	talent
+
+output:
+	ihubtalent
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="ihub";
+		String str2="talent";
+		String result=str1.concat(str2);
+		System.out.println(result);
+		
+	}
+}
+
+
+Q) Write a java program to check given strings is equal or not?
+
+input:
+	ihubtalent
+	qualitythought
+
+output:
+	Both are not equals
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="ihubtalent";
+		String str2="qualitythought";
+		
+		if(str1.equals(str2))
+			System.out.println("Both are equals");
+		else
+			System.out.println("Both are not equals");
+
+		
+	}
+}
+
+Q) Write a java program to display index of first occurance of a given character in a string?
+
+input:
+	str = bhaskar
+	ch  = 'a' 
+output:
+	2
+
+ex:
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		char ch='a';
+		int index=str.indexOf(ch);
+		System.out.println(index);	
+	}
+}
+
+Q) Write a java program to display last index of a given character in a string?
+
+input:
+	str = bhaskar
+	ch  = 'a' 
+output:
+	5
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		char ch='a';
+		int index=str.lastIndexOf(ch);
+		System.out.println(index);	
+	}
+}
+
+Q) Write a java program to remove special characters from given string?
+
+input:
+	I_hu@bTa$len#t12
+
+output:
+	IhubTalent12
+
+ex:
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="I_hu@bTa$len#t12";
+		
+		str = str.replaceAll("[^A-Za-z0-9]","");
+		
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to display special characters from given string?
+
+input:
+	I_hu@bTa$len#t12
+
+output:
+	_@$#
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="I_hu@bTa$len#t12";
+		
+		str = str.replaceAll("[A-Za-z0-9]","");
+		
+		System.out.println(str);
+	}
+}
+
+
+Q) Write a java program to concatinate two strings?
+
+input:
+	ihub23
+	talent17
+
+output:
+	ihubtalent40
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="ihub23";
+		String str2="talent17";
+		
+		
+		String word1=str1.replaceAll("[^A-Za-z]","");
+		int num1=Integer.parseInt(str1.replaceAll("[^0-9]",""));
+		
+		String word2=str2.replaceAll("[^A-Za-z]","");
+		int num2=Integer.parseInt(str2.replaceAll("[^0-9]",""));
+		
+		String word=word1+word2;
+		int num=num1+num2;
+		
+		System.out.println(word+num);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Assignment
+===========
+
+
+OOPS
+=====
+Q) What is class?
+
+Q) What is object?
+
+Q) What is Data hiding?
+
+Q) What is Abstraction?
+
+Q) What is Encapsulation?
+
+Q) Method overloading vs Method overriding?
+
+Q) What is constructor?
+
+Q) Interface vs Abstract class?
+
+Q) What is Inheritance and it's types?
+
+Q) this vs super keyword?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

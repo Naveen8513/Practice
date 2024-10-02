@@ -1,0 +1,353 @@
+Comments in java
+================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommanded to use comments in our regular programming.
+
+Diagram: java4.1
+
+Comments will not display in output because they will not compiled by the compiler.
+
+In java, we have two types of comments.
+
+1) Single line comment 
+----------------------
+	It is used to comment a single line.
+	ex:
+		// comment here 
+	
+
+2) Multiple line comment 
+------------------------
+	It is used to comment multiple lines.
+	ex:
+		/*
+			-
+			- comment here 
+			-
+		*/ 
+
+ex:
+---
+//class declaration 
+class  Example
+{
+
+	//main method 
+	public static void main(String[] args)
+	{
+
+		//variable declaration 
+		int i=10;
+
+
+		//output stmt
+		System.out.println(i);
+	}
+}
+
+Naming Conventions in Java
+==========================
+In java, uppercase letters will consider as different and lowercase letters will consider as different.Hence we consider java is a case sensitive programming language.
+
+As java is a case sensitive, we must and should follow naming conventions for following things.
+
+ex:
+	classes 
+	interfaces
+	variables
+	methods
+	keywords
+	packages 
+	constants 
+
+classes
+--------
+In java, a class name must and should starts with upper case letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	Predefined classes		Userdefined classes
+	-------------------		--------------------
+	System				Test
+	File				TestApp
+	BufferedWriter 			DemoExample
+	StringBuffer 			EmployeeDetails
+	and etc.			and etc.
+
+interfaces
+-----------
+In java, an interface name must and should starts with upper case letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined interfaces		userdefined interfaces
+	---------------------		-----------------------
+	Runnable 			ITest
+	Serializable 			IDemoApp 
+	ListIterator 			IExampleDemo
+	Enumeration 			IEmployeeDetails
+	and etc.			and etc.
+
+
+variables
+-----------
+In java , a variable name must and should starts with lowercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined variables		userdefined variables
+	-------------------		---------------------
+	length				empId
+	out				studName
+	err				deptNo
+	in 				countTokens
+	and etc.			and etc.
+
+
+Methods
+-------
+In java, a method name must and should starts with lowercase letter and if it contains multiple words then each inner word must and should starts with uppercase letter.
+
+ex:
+	predefined methods		userdefined methods
+	-----------------		--------------------
+	getPriority()			getDetails()
+	setName()			setInfo()
+	getClass()			getEmployeeDetails()
+	hashCode()			calculateBillAmt()
+	toString()			discount() 
+	and etc.			and etc.
+
+keywords
+----------
+In java, all keywords we need to declare under lowercase letters only.
+
+ex:
+	predefined keywords
+	-------------------
+	if, else, for, switch, while, public, static, void and etc.	
+
+packages
+--------
+In java, all packages we need to declare under lowercase letters only.
+
+ex:
+	predefined packages		userdefined packages
+	-------------			--------------------
+	java.lang  (default pkg)	com.ihub.www	
+	java.io				com.google.www
+	java.util			com.java.www
+	java.util.stream		and etc.
+	java.sql
+	java.time
+	java.text 
+	and etc.
+
+
+
+constants 
+---------
+In java , all constants we need to declare under uppercase letters only.
+
+ex:
+	predefined constants		userdefined constants
+	-----------------		----------------------
+	MAX_PRIORITY			int  LIMIT=10;
+	MIN_PRIORITY
+	NORM_PRIORITY
+	MAX_VALUE
+	MIN_VALUE
+	and etc.
+
+
+Interview Questions
+===================
+
+Q) Which package is a default package in java?
+
+	java.lang package 
+
+
+Q) How many reserved words are present in java?
+
+	53 
+
+
+Q) Java is platform dependent or independent?
+
+	platform independent.
+
+
+Q) JVM is platform dependent or independent?
+
+	JVM is platform dependent.
+
+
+Q) How many classes are there in java?
+
+	According to Java 8 we have 4240 classes.
+
+
+
+Q) What is the different between JDK, JRE and JVM ?
+
+JDK
+-----
+JDK stands for Java Development Kit.
+
+It is a installable software which consist of Java Runtime Environment (JRE), Java Virtual Machine (JVM), compiler (javac) , interpreter (java), an archiever (.jar) , document generator (javadoc) and other tools needed for java application development.
+
+JRE
+----
+JRE stands for Java Runtime Environment.
+It provides very good environment to run java applications only.
+
+JVM
+----
+JVM stands for Java Virtual Machine.
+It is an interpreter which is used to execute our program line by line procedure.
+
+Diagram: java4.2
+
+Assignment
+===========
+1) class	:	QualityThought
+
+2) interface	:	IQualityThought 
+
+3) variable 	:	qualityThought	
+
+4) method 	:	qualityThought()
+
+5) package	:	com.qualitythought.www
+	
+6) constant 	:	QUALITY_THOUGHT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
